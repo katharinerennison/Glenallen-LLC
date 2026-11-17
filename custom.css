@@ -1,0 +1,27 @@
+/**COLORS**/
+
+[data-theme='Picnic'] {
+  --color-darkred: #A61D30;
+  --color-lightred: #D4777F;
+  --color-cream: #EEE3D3;
+  --color-lightbrown: #B59B92;
+  --color-brown: #83645D;
+}
+
+/* SOLID RED HERO */
+.hero-stage {
+  background-color: #A61D30 !important;
+}
+
+.hero-poster {
+  background-color: #A61D30 !important;
+  background-image: none !important;
+}
+
+.hero-scrim {
+  background: transparent !important;
+}
+
+.hero-poster iframe {
+  display: none !important;
+}

@@ -21,6 +21,7 @@
   /* --color-primary-content: #______; */
   /* --color-accent: #______; */
 }
+
 /* ===== END PALETTE ===== */
 
 /* ===== TYPE ===== */
@@ -30,6 +31,7 @@
 body {
   font-family: 'Inter', system-ui, sans-serif;
 }
+
 .font-display {
   font-family: 'Fraunces', Georgia, serif;
   font-optical-sizing: auto;
@@ -42,6 +44,7 @@ h2,
 h3 {
   text-wrap: balance;
 }
+
 p,
 li,
 dd,
@@ -63,6 +66,7 @@ blockquote {
   align-items: center;
   gap: 0.75rem;
 }
+
 .eyebrow::before,
 .text-center .eyebrow::after {
   content: '';
@@ -71,107 +75,14 @@ blockquote {
   height: 1px;
   background: currentColor;
 }
+
 .text-center .eyebrow {
   justify-content: center;
 }
+
 /* ===== END TYPE ===== */
 
-/* ===== HERO VIDEO ===== */
-/* Load-bearing. js/hero-video.js decides when the video shows; these rules place it. */
 
-.hero-stage {
-  position: relative;
-  overflow: hidden;
-}
-
-/* The photograph is the hero whenever the video is not: blocked, loading, on a
- * phone, or reduced motion. Design it as the only thing there. Swap the video,
- * swap this for a still from the same footage. */
-.hero-poster {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  background-color: var(--color-base-300);
-  background-image: url('img/dining-room.jpg'),
-    linear-gradient(140deg, var(--color-primary) 0%, var(--color-base-300) 55%, var(--color-neutral) 100%);
-  background-size: cover;
-  background-position: center;
-}
-
-/* Cover, not contain: 177.78vh is 16/9 of the screen's height. --video-zoom crops
- * YouTube's bars and any black bars in the footage: 1.2 for 16:9, 1.36 for this
- * widescreen clip. Swap the video, check the edges, set this. */
-.hero-poster {
-  --video-zoom: 1.36;
-}
-.hero-poster iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(var(--video-zoom));
-  width: 100vw;
-  height: 56.25vw;
-  min-width: 177.78vh;
-  min-height: 100%;
-  border: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-.hero-poster.is-playing iframe {
-  opacity: 1;
-}
-
-/* The scrim makes the headline readable. White text needs 4.5:1 against the
- * video's brightest frame; 65% black measures about 6.9:1 over pure white.
- * Lighten it only if you measure. */
-.hero-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(to bottom, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0.65) 45%, rgb(0 0 0 / 0.85));
-}
-
-/* The hero's words rise in once, one after another, as the page opens. Put
- * .hero-rise on the block that holds them; each child is one step. */
-.hero-rise > * {
-  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-.hero-rise > :nth-child(2) {
-  animation-delay: 0.12s;
-}
-.hero-rise > :nth-child(3) {
-  animation-delay: 0.24s;
-}
-.hero-rise > :nth-child(4) {
-  animation-delay: 0.36s;
-}
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(1.5rem);
-  }
-}
-
-/* The scroll cue at the foot of the hero: a nudge, not a second button. */
-.hero-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 1.75rem;
-  z-index: 10;
-  translate: -50% 0;
-  color: #fff;
-}
-.hero-cue svg {
-  animation: nudge 2.4s ease-in-out infinite;
-}
-@keyframes nudge {
-  50% {
-    transform: translateY(0.45rem);
-  }
-}
-/* ===== END HERO VIDEO ===== */
 
 /* ===== THE MENU ===== */
 /* Name, dotted leader, price, like a printed menu. The leader is the dt's ::after. */
@@ -182,11 +93,13 @@ blockquote {
   align-items: baseline;
   padding-block: 1.1rem;
 }
+
 .menu-item dt {
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
 }
+
 .menu-item dt::after {
   content: '';
   flex: 1;
@@ -194,12 +107,14 @@ blockquote {
   border-bottom: 2px dotted color-mix(in oklch, var(--color-base-content) 35%, transparent);
   transform: translateY(-0.3em);
 }
+
 .menu-item .price {
   font-weight: 700;
   font-size: 1.125rem;
   color: var(--color-primary);
   white-space: nowrap;
 }
+
 .menu-item .desc {
   grid-column: 1 / -1;
   opacity: 0.8;
@@ -221,18 +136,22 @@ blockquote {
   color: var(--color-primary-content);
   text-decoration: none;
 }
+
 /* ===== END THE MENU ===== */
 
 /* ===== CAROUSELS ===== */
 /* daisyUI's .carousel is a sideways scroller that snaps to each slide. js/site.js
  * adds the arrows and dots; these rules dress them. */
 [data-carousel] .carousel {
-  position: relative; /* site.js measures each slide from here */
+  position: relative;
+  /* site.js measures each slide from here */
   scrollbar-width: none;
 }
+
 [data-carousel] .carousel::-webkit-scrollbar {
   display: none;
 }
+
 .carousel-dot {
   width: 0.65rem;
   height: 0.65rem;
@@ -241,6 +160,7 @@ blockquote {
   opacity: 0.35;
   transition: opacity 0.2s ease, width 0.2s ease;
 }
+
 .carousel-dot[aria-current='true'] {
   opacity: 1;
   width: 1.75rem;
@@ -254,13 +174,16 @@ blockquote {
   inset: 0;
   background: linear-gradient(to bottom, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0.65) 45%, rgb(0 0 0 / 0.85));
 }
+
 [data-pause] .i-play,
 [data-pause][aria-pressed='true'] .i-pause {
   display: none;
 }
+
 [data-pause][aria-pressed='true'] .i-play {
   display: block;
 }
+
 /* ===== END CAROUSELS ===== */
 
 /* ===== NAV OVER THE HERO ===== */
@@ -275,25 +198,31 @@ blockquote {
   background: linear-gradient(to bottom, rgb(0 0 0 / 0.55), transparent);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* The thin rule under it, on the photo only. */
 .nav-over {
   border-bottom: 1px solid rgb(255 255 255 / 0.3);
 }
+
 .nav-over.is-solid {
   border-bottom-color: transparent;
 }
+
 .nav-over.is-fixed {
   position: fixed;
 }
+
 .nav-over.is-solid {
   color: var(--color-base-content);
   background: color-mix(in oklch, var(--color-base-100) 92%, transparent);
   backdrop-filter: blur(8px);
   box-shadow: 0 1px 0 color-mix(in oklch, var(--color-base-content) 12%, transparent);
 }
+
 .nav-over .dropdown-content {
   color: var(--color-base-content);
 }
+
 /* ===== END NAV OVER THE HERO ===== */
 
 /* ===== PAGE HEADERS ===== */
@@ -305,6 +234,7 @@ blockquote {
   text-decoration-color: rgb(255 255 255 / 0.5);
   text-underline-offset: 0.2em;
 }
+
 /* ===== END PAGE HEADERS ===== */
 
 /* ===== MOTION ===== */
@@ -316,20 +246,25 @@ blockquote {
 .reveal-on main {
   overflow-x: clip;
 }
+
 .reveal-on [data-reveal] {
   transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--reveal-delay, 0s);
 }
+
 .reveal-on [data-reveal]:not(.is-revealed) {
   opacity: 0;
   transform: translateY(2rem);
 }
+
 .reveal-on [data-reveal='left']:not(.is-revealed) {
   transform: translateX(-2.5rem);
 }
+
 .reveal-on [data-reveal='right']:not(.is-revealed) {
   transform: translateX(2.5rem);
 }
+
 .reveal-on [data-reveal='zoom']:not(.is-revealed) {
   transform: scale(0.94);
 }
@@ -344,9 +279,11 @@ blockquote {
 [data-sticky-nav] {
   transition: box-shadow 0.3s ease;
 }
+
 [data-sticky-nav].is-scrolled {
   box-shadow: 0 12px 30px -14px rgb(0 0 0 / 0.55);
 }
+
 /* ===== END MOTION ===== */
 
 /* ===== BACK TO TOP ===== */
@@ -368,20 +305,24 @@ blockquote {
   box-shadow: 0 10px 25px -10px rgb(0 0 0 / 0.6);
   transition: opacity 0.3s ease, translate 0.3s ease, visibility 0.3s;
 }
+
 .to-top[hidden] {
   display: none;
 }
+
 .to-top:not(.is-shown) {
   opacity: 0;
   visibility: hidden;
   translate: 0 1rem;
 }
+
 @media (min-width: 768px) {
   .to-top {
     right: 1.5rem;
     bottom: 1.5rem;
   }
 }
+
 /* ===== END BACK TO TOP ===== */
 
 /* ===== LIGHTBOX ===== */
@@ -391,6 +332,7 @@ blockquote {
 [data-lightbox] a {
   cursor: zoom-in;
 }
+
 .lightbox {
   width: 100%;
   height: 100%;
@@ -402,10 +344,12 @@ blockquote {
   background: transparent;
   color: #fff;
 }
+
 .lightbox::backdrop {
   background: rgb(0 0 0 / 0.9);
   backdrop-filter: blur(6px);
 }
+
 .lightbox-stage {
   display: grid;
   place-items: center;
@@ -413,12 +357,14 @@ blockquote {
   height: 100%;
   padding: 4.5rem 1rem 3.5rem;
 }
+
 .lightbox figure {
   display: grid;
   justify-items: center;
   gap: 0.75rem;
   max-width: min(100%, 72rem);
 }
+
 .lightbox img {
   max-width: 100%;
   max-height: calc(100svh - 11rem);
@@ -426,6 +372,7 @@ blockquote {
   border-radius: var(--radius-box);
   animation: lightbox-in 0.35s ease both;
 }
+
 .lightbox .lightbox-video {
   width: min(100vw - 2rem, 64rem);
   aspect-ratio: 16 / 9;
@@ -433,10 +380,12 @@ blockquote {
   border-radius: var(--radius-box);
   background: #000;
 }
+
 .lightbox figcaption {
   text-align: center;
   max-width: 40rem;
 }
+
 .lightbox-bar {
   position: absolute;
   inset: 0 0 auto;
@@ -445,21 +394,26 @@ blockquote {
   justify-content: space-between;
   padding: 1rem;
 }
+
 .lightbox-arrow {
   position: absolute;
   top: 50%;
   translate: 0 -50%;
 }
+
 .lightbox-arrow[data-lb-prev] {
   left: 1rem;
 }
+
 .lightbox-arrow[data-lb-next] {
   right: 1rem;
 }
+
 /* The play button on a video link breathes out, to say it can be pressed. */
 .play-pulse {
   isolation: isolate;
 }
+
 .play-pulse::before {
   content: '';
   position: absolute;
@@ -469,21 +423,25 @@ blockquote {
   background: inherit;
   animation: pulse 2.2s ease-out infinite;
 }
+
 @keyframes pulse {
   to {
     transform: scale(1.8);
     opacity: 0;
   }
 }
+
 html:has(.lightbox[open]) {
   overflow: hidden;
 }
+
 @keyframes lightbox-in {
   from {
     opacity: 0;
     transform: scale(0.97);
   }
 }
+
 /* ===== END LIGHTBOX ===== */
 
 /* ===== EVERYTHING ELSE ===== */
@@ -513,6 +471,7 @@ html:has(.lightbox[open]) {
   top: -5rem;
   z-index: 50;
 }
+
 .skip-link:focus {
   top: 1rem;
 }
@@ -530,6 +489,7 @@ summary:focus-visible,
 [id] {
   scroll-margin-top: 5rem;
 }
+
 body:has(.menu-jump) [id] {
   scroll-margin-top: 8rem;
 }
@@ -545,15 +505,18 @@ html {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {
     transition: none !important;
   }
+
   .group:hover img {
     transform: none;
   }
-  .hero-rise > *,
+
+  .hero-rise>*,
   .hero-cue svg,
   .lightbox img,
   .play-pulse::before {
@@ -563,6 +526,7 @@ html {
 
 /* Printing the menu: only the food and the prices, black on white. */
 @media print {
+
   nav,
   footer,
   .skip-link,
@@ -573,19 +537,24 @@ html {
   section.bg-primary {
     display: none !important;
   }
+
   .page-hero {
     color: #000 !important;
   }
+
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
   }
+
   body {
     background: #fff !important;
     color: #000 !important;
   }
+
   .menu-item .price {
     color: #000;
   }
 }
+
 /* ===== END EVERYTHING ELSE ===== */
