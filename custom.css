@@ -1,11 +1,12 @@
 /**COLORS**/
 
 [data-theme='Picnic'] {
+  --color-primary: #EEE3D3;
   --color-darkred: #A61D30;
   --color-lightred: #D4777F;
   --color-cream: #EEE3D3;
   --color-lightbrown: #B59B92;
-  --color-brown: #83645D;
+  --color-brown: #a18882;
 }
 
 /**FONTS**/
@@ -42,5 +43,18 @@
 }
 
 .card {
-  background-color: #83645D;
+  background-color: #a18882;
+}
+.eyebrow {
+  color:#A61D30
+}
+
+.navbar {
+  background-color: #D4777F;
+  color: white
+}
+
+.navbar .btn {
+  color: #A61D30;
+  background-color:#f1bcae
 }
